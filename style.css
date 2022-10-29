@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.letra {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    font-family: "Helvetica";
+    font-size: 2em;
+    font-weight: bold;
+    border: 2px solid gray;
+    margin: 3px;
+}
+
+.title {
+    font-family:'Cascadia Code';
+    text-align:center;
+    grid-column: 3 / 6;
+    grid-row: 1 / 2;
+    color: black;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 15% 1fr 1fr 1fr 1fr 1fr 15%;
+    grid-template-rows: 10% 1fr 1fr 1fr 1fr 1fr 1fr 10%;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.cl1 { 
+    grid-column: 2 / 3;
+}
+.cl2 { 
+    grid-column: 3 / 4;
+}
+.cl3 { 
+    grid-column: 4 / 5;
+}
+.cl4 { 
+    grid-column: 5 / 6;
+}
+.cl5 { 
+    grid-column: 6 / 7;
+}
+
+.r1 {
+    grid-row: 2 / 3;
+}
+.r2 {
+    grid-row: 3 / 4;
+}
+.r3 {
+    grid-row: 4 / 5;
+}
+.r4 {
+    grid-row: 5 / 6;
+}
+.r5 {
+    grid-row: 6 / 7;
+}
+.r6 {
+    grid-row: 7 / 8;
+}
+
+.amarelo {
+    background-color: yellow;
+}
+
+.verde {
+    background-color: green;
+}
+
+.cinzento {
+    background-color: gray;
+}
