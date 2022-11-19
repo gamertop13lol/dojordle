@@ -6,8 +6,4 @@ Dojordle is wordle, but dojordle. Yes, you heard that right, this is revolutioni
 
 Download the files (readme.md and license.md are optional, of course), open index.html and there's dojordle.
 So cool.
-Just a warning, only type words when you know what you're writing. You cannot do backspace _as of right now_. But you can type any word, _as of right now_.
-
-# When will you add this?
-
-Don't worry, I'll try to make this project better over the time.
+You can now only type words that are in the dataset (and use backspace (and play as Luigi)).
