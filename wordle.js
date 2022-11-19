@@ -10,20 +10,37 @@ function colocarletra (letra) { // Colocar uma letra
     if (validas.includes(letra) && indice < 30 && ajogar) {
         document.getElementById(indice).textContent = letra;
         if (indice % 5 == 4) {
-            if (avaliar(indice - 4, indice)) {
-                alert("GANHASTE EZ LOL GG");
+            if (!indataset(indice - 4, indice)) {
+                apagarpalavra(indice - 4, indice);
+                alert("Word not in dataset!");
+            } else if (avaliar(indice - 4, indice)) {
+                alert("YOU WIN EZ LOL GG");
                 ajogar = false;
             } else if (indice == 29) {
-                alert("PERDESTE F L");
+                alert("YOU LOST F IN CHAT");
                 ajogar = false;
             }
+            
         }
         indice++;
     }
 }
 
 function input (event) { // Receber input e converter
-    colocarletra(String.fromCharCode(event.keyCode)[0]);
+    if (event.keyCode == 8 && indice % 5 != 0) {
+        indice = indice - 1;
+        colocarletra("");
+        indice = indice - 1;
+    } else {
+        colocarletra(String.fromCharCode(event.keyCode)[0]);
+    }
+}
+
+function apagarpalavra (inicio, fim) {
+    for (let i = inicio; i<=fim; i++) {
+        document.getElementById(i).textContent = "";
+    }
+    indice -= 5;
 }
 
 function avaliar (inicio, fim) { // Nega
@@ -31,7 +48,7 @@ function avaliar (inicio, fim) { // Nega
     var letrasempalavra_t = Object.assign({}, letrasempalavra);
     for (let i = inicio; i<=fim; i++) {
         let div = document.getElementById(i);
-        let letra = document.getElementById(i).textContent;
+        let letra = div.textContent;
         if (letra == palavra[i - inicio] && letrasempalavra_t[letra] > 0) {
             div.classList.add("verde");
         } else if (palavra.includes(letra) && letrasempalavra_t[letra] > 0) {
@@ -40,9 +57,18 @@ function avaliar (inicio, fim) { // Nega
             div.classList.add("cinzento");
         }
         resposta += letra;
-        letrasempalavra_t[letra]--
+        letrasempalavra_t[letra]--;
     }
     return palavra == resposta;
+}
+
+function indataset (inicio, fim) {
+    let palavrac = "";
+    for (let i = inicio; i<=fim; i++) {
+        let letra = document.getElementById(i).textContent;
+        palavrac = palavrac + letra;
+    }
+    return dataset.includes(palavrac);
 }
 
 function buscardataset () { // Escolher uma palavra do dataset
